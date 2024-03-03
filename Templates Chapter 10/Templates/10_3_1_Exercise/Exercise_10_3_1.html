@@ -25,13 +25,41 @@
         <script>
             //Code here...
             itemArray = ["Processor", "Motherboard", "Processor cooling", "RAM", "GPU", "Storage", "Case", "Chassis cooling", "PSU", "OS"]
-            document.getElementById("selectButton").addEventListener("click", confirmationBtn)
-            function confirmationBtn(){
-                let selectionBox = document.getElementById("ComponentsList")
-                let itemSelected = selectionBox.value
-
-                if(itemSelected.selectedIndex )
+            let valueOfselected = document.getElementById()
+            for(let i= 0; i<10 ; i++){
+                if(ComponentsList.selectedIndex== itemArray[i] ){
+                    document.getElementById("componentImage").src = "ComponentsImages/"
+                }
             }
+            // document.getElementById("selectButton").addEventListener("click", confirmationBtn)
+            // function confirmationBtn(){
+            //     if(ComponentsList.selectedIndex == 0 ){
+            //         alert("please select an item!")
+            //     }else if(ComponentsList.selectedIndex == 1){
+            //         document.getElementById("componentImage").src = "ComponentsImages/Processor.png"
+            //     }else if(ComponentsList.selectedIndex == 2){
+            //         document.getElementById("componentImage").src = "ComponentsImages/Motherboard.png"
+            //     }else if(ComponentsList.selectedIndex == 3){
+            //         document.getElementById("componentImage").src = "ComponentsImages/Processor cooling.png"
+            //     }else if(ComponentsList.selectedIndex == 4){
+            //         document.getElementById("componentImage").src = "ComponentsImages/RAM.png"
+            //     }else if(ComponentsList.selectedIndex == 5){
+            //         document.getElementById("componentImage").src = "ComponentsImages/GPU.png"
+            //     }else if(ComponentsList.selectedIndex == 6){
+            //         document.getElementById("componentImage").src = "ComponentsImages/Storage.png"
+            //     }else if(ComponentsList.selectedIndex == 7){
+            //         document.getElementById("componentImage").src = "ComponentsImages/Case.png"
+            //     }else if(ComponentsList.selectedIndex == 8){
+            //         document.getElementById("componentImage").src = "ComponentsImages/Chassis cooling.png"
+            //     }else if(ComponentsList.selectedIndex == 9){
+            //         document.getElementById("componentImage").src = "ComponentsImages/PSU.png"
+            //     }else if(ComponentsList.selectedIndex == 10){
+            //         document.getElementById("componentImage").src = "ComponentsImages/OS.png"
+            //     }
+            //     else{
+            //         alert("Error from code")
+            //     }
+            // }
         </script>
     </body>
 </html>
