@@ -8,29 +8,27 @@
         <h2>PC component selector</h2>
         <select id="ComponentsList">
             <option value="">Choose a PC component</option>
-            <option value="Processor">Processor</option>                                  <! –– index 1 ––> 
-            <option value="Motherboard">Motherboard</option>
-            <option value="Processor cooling">Processor cooling</option>
-            <option value="RAM">RAM</option>
-            <option value="GPU">GPU</option>                                              <! –– index 5 ––> 
-            <option value="Storage">Storage</option>
-            <option value="Case">Case</option>
-            <option value="Chassis cooling">Chassis cooling</option>                      <! –– index 8 ––> 
-            <option value="PSU">PSU</option>
-            <option value="OS">OS</option>
         </select>
         <input type="button" value="Select" id="selectButton">
         <br>
         <image id="componentImage" src="ComponentsImages/PC.png" width="200" height="150"></image>
         <script>
             //Code here...
-            itemArray = ["Processor", "Motherboard", "Processor cooling", "RAM", "GPU", "Storage", "Case", "Chassis cooling", "PSU", "OS"]
-            let valueOfselected = document.getElementById()
-            for(let i= 0; i<10 ; i++){
-                if(ComponentsList.selectedIndex== itemArray[i] ){
-                    document.getElementById("componentImage").src = "ComponentsImages/"
+            const pcComponents = ["Processor", "Motherboard", "Processor cooling", "RAM", "GPU", "Storage", "Case", "Chassis cooling", "PSU", "OS"]
+            for(let i= 0; i<pcComponents.length ; i++){
+                let compList=document.getElementById("ComponentsList");
+                compList.options[i+1]=new Option(pcComponents[i])
+            }
+            document.getElementById("selectButton").addEventListener("click", research)
+
+            function research(){
+                let selectedItem = compList.selectedIndex
+                if(selectedItem>= 0){
+                    
                 }
             }
+
+            
             // document.getElementById("selectButton").addEventListener("click", confirmationBtn)
             // function confirmationBtn(){
             //     if(ComponentsList.selectedIndex == 0 ){
