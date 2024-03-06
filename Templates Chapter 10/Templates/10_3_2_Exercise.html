@@ -22,6 +22,30 @@
         <script>
         
         //Code here...
+        var Result = [];
+        var input1 = 
+        document.getElementById("addButton").addEventListener("click", ADD)
+        function ADD(){
+             input1 = document.getElementById("text1").value
+        }
+        document.getElementById("displayButton").addEventListener("click", displayBtn)
+        function displayBtn(){
+            Result.push(input1)
+            document.getElementById("Result").innerHTML = Result
+        }
+
+        var input2 = document.getElementById("text2").value
+        document.getElementById("searchButton").addEventListener("click", searchBtn)
+        function searchBtn(){
+            for(i =0; i<Result.length ; i++){
+                if(input2 == Result[i]){
+                    return true
+                }else{
+                    return false
+                }
+            }
+        }
+        
         </script>
     </body>
 </html>
