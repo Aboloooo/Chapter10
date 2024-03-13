@@ -23,28 +23,42 @@
         
         //Code here...
         var Result = [];
-        var input1 = 
         document.getElementById("addButton").addEventListener("click", ADD)
         function ADD(){
-             input1 = document.getElementById("text1").value
+             var input1 = document.getElementById("text1").value
+             Result.push(input1)
         }
         document.getElementById("displayButton").addEventListener("click", displayBtn)
         function displayBtn(){
-            Result.push(input1)
             document.getElementById("Result").innerHTML = Result
+            document.getElementById("text1").value = ""
         }
 
-        var input2 = document.getElementById("text2").value
+        
         document.getElementById("searchButton").addEventListener("click", searchBtn)
+
+        
         function searchBtn(){
-            for(i =0; i<Result.length ; i++){
+            var input2 = document.getElementById("text2").value
+            var found = false
+            for(var i =0; i<=Result.length ; i++){
                 if(input2 == Result[i]){
-                    return true
-                }else{
-                    return false
+                    document.getElementById("SearchResults").innerHTML = Result[i] + " found in your list"
+                    found = true
+                    break;
                 }
             }
+            if(!found){
+                document.getElementById("SearchResults").innerHTML = "Item didn't find!"
+            }
         }
+        document.getElementById("removeButton").addEventListener("click", removeBtn)
+        function removeBtn(){
+            Result = Result.splice(i,1)
+            document.getElementById("SearchResults").innerHTML = Result
+            alert ("One item removed!")
+        }
+        
         
         </script>
     </body>
