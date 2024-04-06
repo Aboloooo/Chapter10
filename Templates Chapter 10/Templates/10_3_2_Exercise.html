@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang=en>
-    <head>
-        <meta charset=utf-8 />
-        <title>Template </title>
-    </head>
-    <body>
-        <form>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Template </title>
+</head>
+
+<body>
+    <form>
         <input type="text" id="text1"></input>
         <input type="button" id="addButton" value="Add"></input>
         <input type="button" id="displayButton" value="Display"></input>
@@ -14,52 +16,57 @@
         <input type="text" id="text2"></input>
         <input type="button" id="searchButton" value="Search"></input>
         <input type="button" id="removeButton" value="Remove"></input>
-        </form>
-        <p id="SearchResults"></p><br>
-        <p>Shopping List : <br>
-        <span id = "Result"></span>
-        </p>
-        <script>
-        
+    </form>
+    <p id="SearchResults"></p><br>
+    <p>Shopping List : <br>
+        <span id="Result"></span>
+    </p>
+    <script>
+
         //Code here...
         var Result = [];
         document.getElementById("addButton").addEventListener("click", ADD)
-        function ADD(){
-             var input1 = document.getElementById("text1").value
-             Result.push(input1)
+        function ADD() {
+            var input1 = document.getElementById("text1").value
+            Result.push(input1)
         }
         document.getElementById("displayButton").addEventListener("click", displayBtn)
-        function displayBtn(){
+        function displayBtn() {
             document.getElementById("Result").innerHTML = Result
             document.getElementById("text1").value = ""
         }
-
-        
+        var input2;
+        var found;
         document.getElementById("searchButton").addEventListener("click", searchBtn)
-
-        
-        function searchBtn(){
-            var input2 = document.getElementById("text2").value
-            var found = false
-            for(var i =0; i<=Result.length ; i++){
-                if(input2 == Result[i]){
+        function searchBtn() {
+             input2 = document.getElementById("text2").value
+             found = false
+            for (var i = 0; i <= Result.length; i++) {
+                if (input2 == Result[i]) {
                     document.getElementById("SearchResults").innerHTML = Result[i] + " found in your list"
                     found = true
                     break;
                 }
             }
-            if(!found){
+            if (!found) {
                 document.getElementById("SearchResults").innerHTML = "Item didn't find!"
             }
         }
         document.getElementById("removeButton").addEventListener("click", removeBtn)
-        function removeBtn(){
-            Result = Result.splice(i,1)
-            document.getElementById("SearchResults").innerHTML = Result
-            alert ("One item removed!")
+        function removeBtn() {
+            for(let i=0; i<Result.length; i++){
+                if(input2==Result[i]){
+                    alert(Result[i]+" has been removed!")
+                    Result.splice(i,1)
+                    document.getElementById("Result").innerHTML = Result
+                }else{
+                    alert("It seems something going wrong!")
+                }
+            }
         }
-        
-        
-        </script>
-    </body>
+
+
+    </script>
+</body>
+
 </html>
