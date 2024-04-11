@@ -5,15 +5,23 @@
     <h2>JavaScript Arrays</h2>
     <p>The best way to loop through an array is using a standard for loop:</p>
     <p id="demo"></p>
+    <ul>
+        <li></li>
+    </ul>
     <script>
-        const countries = ["Luxembourg", "Germany", "Belgium", "France","Afg"];
+        const countries = ["Luxembourg", "Germany", "Belgium", "France","Afg","India"];
         let cLength = countries.length;
         let text = "<ul>";
-        for (let i = 0; i < cLength; i++) {
-            text = text + "<li>" + countries[i] + "</li>";
+        //for (let i = 0; i < cLength; i++) {
+          //  text = text + "<li>" + countries[i] + "</li>";
+        //}
+        for(let country of countries){
+            text = text + "<li>" + country + "</li>";
         }
         text = text + "</ul>";
         document.getElementById("demo").innerHTML = text;
+
+        
     </script>
 </body>
 
