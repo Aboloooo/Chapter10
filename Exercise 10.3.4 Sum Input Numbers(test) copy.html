@@ -12,28 +12,24 @@
     <h1>Exercise 10.3.4 Sum Input Numbers</h1>
 
     <script>
-
         let array = []
+        var totalSum = 0
         function sumInputs() {
-            let userInput = parseInt(prompt("Enter a number!"))
-            while (!isNaN(userInput2) && userInput2 != null) {
-                let userInput2 = parseInt(prompt("Enter a NUMBER!"));
-                if(userinput2 =="" && userinput2 ==""){
+            while (true){
+                let user_input = parseInt(prompt("Enter a number!"))
+                if(isNaN(user_input) || user_input===null){
                     break;
+                }else{
+                    array.push(user_input)
                 }
-                array.push(userInput)
-                array.push(userInput2)
             }
-            
-            let totalSum = 0
             for (let i = 0; i <= array.length; i++) {
-                totalSum += parseInt(array[i])
+                totalSum += array[i]
             }
             return totalSum;
         }
         sumInputs()
-        document.write("Given numbers: " + array)
-        document.write("Total " + parseInt(sumInputs()));
+        document.write("Given numbers: " + array + " = " + totalSum)
     </script>
 </body>
 
