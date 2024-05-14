@@ -16,21 +16,23 @@
         let array = []
         function sumInputs() {
             let userInput = parseInt(prompt("Enter a number!"))
-            while (!isNaN(userInput2) && userInput2 != null) {
-                let userInput2 = parseInt(prompt("Enter a NUMBER!"));
-                if(userinput2 =="" && userinput2 ==""){
-                    break;
+            if (userInput !== "") {
+                while (!isNaN(userInput2) && userInput2 != null) {
+                    let userInput2 = parseInt(prompt("Enter a NUMBER!"));
+                    array.push(userInput)
+                    array.push(userInput2)
                 }
-                array.push(userInput)
-                array.push(userInput2)
+            } else {
+                alert("please entre only numbers")
             }
-            
-            let totalSum = 0
-            for (let i = 0; i <= array.length; i++) {
-                totalSum += parseInt(array[i])
-            }
-            return totalSum;
         }
+
+        let totalSum = 0
+        for (let i = 0; i <= array.length; i++) {
+            totalSum += parseInt(array[i])
+        }
+        return totalSum;
+        
         sumInputs()
         document.write("Given numbers: " + array)
         document.write("Total " + parseInt(sumInputs()));
