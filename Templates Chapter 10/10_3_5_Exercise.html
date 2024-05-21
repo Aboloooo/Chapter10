@@ -1,29 +1,62 @@
 <!DOCTYPE html>
 <html lang=en>
-    <head>
-        <meta charset=utf-8 />
-        <title>Average Calculator </title>
-    </head>
-    <body>
-        <form>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Average Calculator </title>
+</head>
+
+<body>
+    <form>
         <select id="numberList">
         </select>
         <input type="button" id="generateButton" value="Generate"></input>
-        <br>
+        <br>1
         <input type="number" id="numberInput"></input>
         <input type="button" id="addButton" value="Add"></input>
         <br>
         <br>
         <input type="button" id="clearButton" value="Clear"></input>
-        </form>
-        <p id="output">
-			Sum = ?<br>
-			Average = ?<br>
-            Min = ?<br>
-            Max = ?
-		</p>
-        <script>
-            //start coding here
-        </script>
-    </body>
+    </form>
+    <p id="output">
+        Sum = ?<br>
+        Average = ?<br>
+        Min = ?<br>
+        Max = ?
+    </p>
+    <script>
+        //start coding here
+        let array = []
+            document.getElementById("generateButton").addEventListener("click", GenerateRandomNumbers)
+        function GenerateRandomNumbers() {
+            for (let i = 0; i < 10; i++) {
+                let RandomN = Math.floor(Math.random() * 100);
+                let numberList = document.getElementById("numberList")
+                numberList.options[i + 1] = new Option(RandomN)
+                array.push(RandomN)
+                calculation();
+            }
+        }
+        document.getElementById("addButton").addEventListener("click", addingToList);
+        function addingToList(){
+            let inputValue = document.getElementById("numberInput").value
+            array.push(inputValue)
+            calculation();
+        }
+        let sum=0;
+        let Average;
+        let min;
+        let max;
+        function calculation(){
+            for(let i=0; i<=array.length ; i++){
+                sum += array[i]
+            }
+            average = sum/array.length
+            min = Math.min(array)
+            max = Math.max(array)
+        }
+
+    </script>
+</body>
+
 </html>
