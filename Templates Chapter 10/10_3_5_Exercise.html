@@ -11,49 +11,61 @@
         <select id="numberList">
         </select>
         <input type="button" id="generateButton" value="Generate"></input>
-        <br>1
+        <br>
         <input type="number" id="numberInput"></input>
         <input type="button" id="addButton" value="Add"></input>
         <br>
         <br>
         <input type="button" id="clearButton" value="Clear"></input>
     </form>
-    <p id="output">
-        Sum = ?<br>
-        Average = ?<br>
-        Min = ?<br>
-        Max = ?
-    </p>
+    <p id="sum">Sum = ?</p>
+    <p id="average">Average = ?</p>
+    <p id="min">Min = ?</p>
+    <p id="max">Max = ?</p>
+
     <script>
         //start coding here
         let array = []
-            document.getElementById("generateButton").addEventListener("click", GenerateRandomNumbers)
+        document.getElementById("generateButton").addEventListener("click", GenerateRandomNumbers)
+        let numberList = document.getElementById("numberList")
+        let index = 0
+        
         function GenerateRandomNumbers() {
             for (let i = 0; i < 10; i++) {
                 let RandomN = Math.floor(Math.random() * 100);
-                let numberList = document.getElementById("numberList")
-                numberList.options[i + 1] = new Option(RandomN)
+                index++
+                numberList.options[index + 1] = new Option(RandomN)
                 array.push(RandomN)
                 calculation();
             }
         }
         document.getElementById("addButton").addEventListener("click", addingToList);
-        function addingToList(){
-            let inputValue = document.getElementById("numberInput").value
+        function addingToList() {
+            let inputValue = parseInt(document.getElementById("numberInput").value);
+            index++
+            numberList.add(new Option(inputValue));
             array.push(inputValue)
             calculation();
         }
-        let sum=0;
+
+
+        let sum = 0;
         let Average;
         let min;
         let max;
-        function calculation(){
-            for(let i=0; i<=array.length ; i++){
+        function calculation() {
+            for (let i = 0; i <= array.length; i++) {
                 sum += array[i]
+                console.log(sum)
             }
-            average = sum/array.length
+            average = sum / array.length
             min = Math.min(array)
             max = Math.max(array)
+            document.getElementById("sum").innerHTML = "Sum = "+sum
+            document.getElementById("average").innerHTML = "Average = "+Average
+            document.getElementById("min").innerHTML = "Min = "+min
+            document.getElementById("max").innerHTML = "Max = "+max
+            
         }
 
     </script>
