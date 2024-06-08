@@ -13,9 +13,9 @@
 
     <script>
         let input_array = []
-        let totoalSum = 0
+        let totalSum = 0
         while (true) {
-            let userInput = parseInt(prompt('enter a number.'))
+            let userInput = parseInt(prompt('Enter a number.'))
             if (isNaN(userInput) || userInput == null) {
                 break;
             } else {
@@ -23,9 +23,9 @@
             }
         }
         for (let i = 0; i < input_array.length; i++) {
-            totoalSum += input_array[i]
+            totalSum += input_array[i]
         }
-        console.log("your array: "+ input_array + " sum = " + totoalSum)
+        console.log("your array: "+ input_array + " sum = " + totalSum)
     </script>
 </body>
 

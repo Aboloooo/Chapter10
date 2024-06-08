@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Template </title>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="text1"></input>
+        <input type="button" id="addButton" value="Add"></input>
+        <input type="button" id="displayButton" value="Display"></input>
+        <br>
+        <br>
+        <input type="text" id="text2"></input>
+        <input type="button" id="searchButton" value="Search"></input>
+        <input type="button" id="removeButton" value="Remove"></input>
+    </form>
+    <p id="SearchResults"></p><br>
+    <p>Shopping List : <br>
+        <span id="Result"></span>
+    </p>
+    <script>
+        //Code here...
+        let resultArray = []
+
+        document.getElementById("addButton").addEventListener("click", AddingUp)
+        function AddingUp(){
+            let input1 = document.getElementById("text1").value
+            resultArray.push(input1)
+        }
+        document.getElementById("displayButton").addEventListener("click", displayBtn)
+        function displayBtn(){
+            document.getElementById("Result").innerHTML = resultArray
+            document.getElementById("text1").value = ""
+        }
+        document.getElementById("searchButton").addEventListener("click", searchBtn)
+        function searchBtn(){
+            let input2 = document.getElementById("text2").value
+            let found = false
+            for(let i=0; i<resultArray.length; i++){
+                if(input2 == resultArray[i]){
+                    document.getElementById("SearchResults").innerHTML = resultArray[i] + " found in the list!"
+                    found = true
+                    break;
+                }
+            }
+            if(!found){
+                document.getElementById("SearchResults").innerHTML = input2 + " doesn't exist in the list!"
+            }
+        }
+        document.getElementById("removeButton").addEventListener("click", removeBtn)
+        function removeBtn(){
+            let removed= false
+            let input2 = document.getElementById("text2").value
+            for(let i = 0 ; i<resultArray.length; i++){
+                if(input2==resultArray[i]){
+                    resultArray.splice(i,1)
+                    document.getElementById("Result").innerHTML = resultArray
+                    alert("One item has been remove from the list!")
+                    removed = true
+                    break;
+                }
+            }
+            if(!removed){
+                    alert("sometimg is going wrong!")
+                }
+        }
+    </script>
+</body>
+
+</html>

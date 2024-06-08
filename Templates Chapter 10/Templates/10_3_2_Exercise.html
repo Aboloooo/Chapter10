@@ -46,22 +46,25 @@
                     document.getElementById("SearchResults").innerHTML = Result[i] + " found in your list"
                     found = true
                     break;
+                }else{
+                    document.getElementById("SearchResults").innerHTML = "item didn't find!"
                 }
-            }
-            if (!found) {
-                document.getElementById("SearchResults").innerHTML = "Item didn't find!"
             }
         }
         document.getElementById("removeButton").addEventListener("click", removeBtn)
         function removeBtn() {
+            let found = false
             for(let i=0; i<Result.length; i++){
                 if(input2==Result[i]){
-                    alert(Result[i]+" has been removed!")
                     Result.splice(i,1)
                     document.getElementById("Result").innerHTML = Result
-                }else{
-                    alert("It seems something going wrong!")
+                    alert(Result[i]+" has been removed!")
+                    found = true
+                    break;
                 }
+            }
+            if(!found){
+                    alert("It seems something going wrong!")
             }
         }
 
