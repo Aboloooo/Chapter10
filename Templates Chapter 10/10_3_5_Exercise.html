@@ -29,22 +29,20 @@
         document.getElementById("generateButton").addEventListener("click", GenerateRandomNumbers)
         let numberList = document.getElementById("numberList")
         let index = 0
-        
+
         function GenerateRandomNumbers() {
             for (let i = 0; i < 10; i++) {
                 let RandomN = Math.floor(Math.random() * 100);
-                index++
-                numberList.options[index + 1] = new Option(RandomN)
+                numberList.options[i + 1] = new Option(RandomN)
                 array.push(RandomN)
-                calculation();
             }
+            calculation();
         }
         document.getElementById("addButton").addEventListener("click", addingToList);
         function addingToList() {
             let inputValue = parseInt(document.getElementById("numberInput").value);
-            index++
             numberList.add(new Option(inputValue));
-            array.push(inputValue)
+            array.push(parseInt(inputValue))
             calculation();
         }
 
@@ -56,16 +54,27 @@
         function calculation() {
             for (let i = 0; i <= array.length; i++) {
                 sum += array[i]
-                console.log(sum)
             }
+            console.log(sum+"sum")
             average = sum / array.length
-            min = Math.min(array)
-            max = Math.max(array)
-            document.getElementById("sum").innerHTML = "Sum = "+sum
-            document.getElementById("average").innerHTML = "Average = "+Average
-            document.getElementById("min").innerHTML = "Min = "+min
-            document.getElementById("max").innerHTML = "Max = "+max
+            min = Math.min(...array)
+            max = Math.max(...array)
+            document.getElementById("sum").innerHTML = "Sum = " + sum
+            document.getElementById("average").innerHTML = "Average = " + Average
+            document.getElementById("min").innerHTML = "Min = " + min
+            document.getElementById("max").innerHTML = "Max = " + max
+
+        }
+        document.getElementById("clearButton").addEventListener("click", clearBtn)
+
+        function clearBtn(){
+            array = []
             
+            numberList.options.length = 0
+            document.getElementById("sum").innerHTML = "Sum = ?"
+            document.getElementById("average").innerHTML = "Average = ?"
+            document.getElementById("min").innerHTML = "Min = ?"
+            document.getElementById("max").innerHTML = "Max = ?"
         }
 
     </script>

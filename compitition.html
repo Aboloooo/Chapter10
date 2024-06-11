@@ -7,17 +7,16 @@
 </head>
 <body>
     <script>
-        var grades=[20,30,23,0]
- 
-       
-        function average(fg){
-            let totalOfGrades=0
-            for(let i=0; i<grades.length ; i++ ){
-                totalOfGrades += grades[i]
+        var grades=[17,16,19,20]
+        function average(){
+            let totalSum = 0
+            for(let i = 0 ; i<grades.length ; i++){
+                totalSum += grades[i]
+            }
+            return(totalSum/grades.length)
         }
-         return totalOfGrades/grades.length;
-    }
-    console.log(average(grades))
+
+        console.log(average(grades))
        
     </script>
 </body>
