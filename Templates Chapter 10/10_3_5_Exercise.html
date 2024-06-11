@@ -28,7 +28,6 @@
         let array = []
         document.getElementById("generateButton").addEventListener("click", GenerateRandomNumbers)
         let numberList = document.getElementById("numberList")
-        let index = 0
 
         function GenerateRandomNumbers() {
             for (let i = 0; i < 10; i++) {
@@ -69,7 +68,7 @@
 
         function clearBtn(){
             array = []
-            
+            document.getElementById("numberInput").value = ""
             numberList.options.length = 0
             document.getElementById("sum").innerHTML = "Sum = ?"
             document.getElementById("average").innerHTML = "Average = ?"
